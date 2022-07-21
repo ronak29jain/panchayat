@@ -1,0 +1,27 @@
+.SidebarOption {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.SidebarOption:hover {
+  background-color: var(--clr-primary-light);
+  border-radius: 30px;
+  color: var(--clr-primary);
+  /* transition: var(--transition); */
+
+}
+
+.SidebarOption > .MuiSvgIcon-root {
+  padding: 20px;
+}
+
+.SidebarOption > h2 {
+  font-weight: 700;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.SidebarOption--active {
+  color: var(--clr-primary);
+}
