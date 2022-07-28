@@ -1,0 +1,12 @@
+.issue-header>h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+  /* margin-left: 0px; */
+  margin-top: 0px;
+}
+
+.issue-username {
+  font-size: 12px;
+  font-weight: 500;
+  color: gray;
+}

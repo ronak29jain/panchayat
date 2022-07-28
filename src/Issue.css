@@ -1,0 +1,48 @@
+.issue {
+  display: flex;
+  padding: 20px;
+  align-items: flex-start;
+  /* padding-top: 20px; */
+  border: var(--clr-background) 1px solid;
+}
+
+.issue-body {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  flex: 1;
+  /* width: inherit; */
+}
+
+
+.issue-header > h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+  /* margin-left: 0px; */
+  margin-top: 0px;
+}
+
+
+.issue-head-discription {
+  font-size: 15px;
+  margin-bottom: 15px;
+  margin-top: 0px;
+}
+
+.issue-batch {
+  font-size: 14px !important;
+  color: var(--clr-primary);
+}
+
+.issue-username {
+  font-size: 12px;
+  font-weight: 500;
+  color: gray;
+}
+
+.issue-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-right: 20%;
+}

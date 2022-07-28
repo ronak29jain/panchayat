@@ -1,0 +1,39 @@
+.postIssue {
+  display: grid;
+  border-bottom: var(--clr-background) 5px solid;
+  padding-bottom: 15px;
+}
+
+.postIssue-content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin: 15px 10px;
+  gap: 15px;
+}
+
+.postIssue-content > input {
+  border: none;
+  overflow-y: scroll;
+}
+
+.postIssue-postButton {
+  /* padding: 5px 15px; */
+  text-transform: inherit !important;
+  background-color: var(--clr-primary) !important;
+  color: var(--clr-white) !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  border-radius: var(--radius) !important;
+  border: none !important;
+  height: 50px !important;
+  /* margin-top: 20px !important; */
+  width: 120px !important;
+  margin-left: auto !important;
+  margin-right: 15px !important;
+}
+
+.postIssue-optionalContent > input {
+  border: none;
+  margin: 15px;
+  height: 30px;
+}

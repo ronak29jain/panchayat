@@ -1,0 +1,32 @@
+.feed {
+  flex: 0.4;
+  border-right: var(--clr-background) 2px solid;
+  /* min-width: fit-content; */
+  overflow-y: scroll;
+}
+
+.feed-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+  padding: 0 20px;
+  border-bottom: 2px solid var(--clr-background);
+}
+
+.feed-home-button:hover {
+  cursor: pointer;
+}
+
+
+/* To Hide the Scroll-Bar*/
+.feed::-webkit-scrollbar {
+  display: none;
+}
+
+.feed {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/* first is for chrome, Safari, and Opera. 
+Second is for IE, Edge, and Fireforx.  */

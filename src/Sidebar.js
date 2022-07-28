@@ -3,7 +3,7 @@ import './Sidebar.css';
 import SidebarOption from './SidebarOption';
 
 
-import PentagonOutlinedIcon from '@mui/icons-material/PentagonOutlined';
+import PentagonIcon from '@mui/icons-material/Pentagon';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import TagIcon from '@mui/icons-material/Tag';
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
@@ -17,10 +17,10 @@ import { Button } from '@mui/material';
 
 function Sidebar() {
   return (
-    <div className='Sidebar'>
+    <div className='sidebar'>
 
       {/* Panchayat Icon */}
-      <SidebarOption Icon={PentagonOutlinedIcon} text=""/>
+      <PentagonIcon className='panchayat_icon'/>
 
       {/* Sidebar  option*/}
       <SidebarOption active Icon={HomeOutlinedIcon} text='Home'/>

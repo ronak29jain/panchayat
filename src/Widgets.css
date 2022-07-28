@@ -1,0 +1,4 @@
+.widgets {
+  flex: 0.3;
+  border-right: var(--clr-background) 2px solid;
+}
