@@ -1,26 +1,51 @@
-import React from 'react'
-// import React, {setState} from 'react'
+// import React from 'react'
+import React, {useState} from 'react'
 import './PostIssue.css'
 import {Avatar} from '@mui/material'
 import { Button } from '@mui/material'
+import db from './firebase';
+import {collection, addDoc} from "firebase/firestore";
 
 
-function PostIssue() {
+function PostIssue({bool, setBool}) {
+
+  const [text, setText] = useState("")
+  const [image, setImage] = useState("")
+
+  const postissue = async() => {
+    const issuesConllectionRef = collection(db, "issues")
+    await addDoc(issuesConllectionRef, {
+      avatar: "/images/photo.jpg",
+      image: {image}.image,
+      name: "Ronak Jain",
+      panch: false,
+      sirpanch: true, 
+      text: {text}.text,
+      username: "ronak29jain"
+    })
+    setText("");
+    setImage("");
+    setBool = !bool
+  }
+
   return (
     <div className='postIssue'>
       <form className='postIssue-form'>
         <div className='postIssue-content'>
           <Avatar src="/images/photo.jpg"/>
-          {/* <Avatar src="photo.jpg"/> */}
-          <input type="text" placeholder='Share Concern'></input>
+          <input value={text} type="text" placeholder='Share Concern'
+            onChange={(event) => setText(event.target.value)}>
+          </input>
         </div>
         <div className='postIssue-optionalContent'>
-          <input type="type" placeholder='Optioanl: Add Image url'></input>
+          <input value={image} type="type" placeholder='Optioanl: Add Image url'
+            onChange={(event) => setImage(event.target.value)}>
+          </input>
         </div>
       </form>
-      <Button className='postIssue-postButton'>Issue</Button>
+      <Button onClick={postissue} className='postIssue-postButton'>Issue</Button>
     </div>
   )
 }
 
-export default PostIssue
+export default PostIssue;

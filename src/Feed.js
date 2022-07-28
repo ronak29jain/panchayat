@@ -8,7 +8,8 @@ import {collection, getDocs} from "firebase/firestore";
 function Feed() {
   
   const [issues, setIssues] = useState([]);
-  
+  const [bool, setBool] = useState(true)
+
   useEffect(() => {
     const getIssues = async () => {
       const issuesCollectionRef = collection(db, "issues")
@@ -16,18 +17,19 @@ function Feed() {
       setIssues(data.docs.map((doc) => ({...doc.data(), id: doc.id}) ))
     }
     getIssues();
-  },[])
+  },[bool])
 
   return (
     <div className='feed'>
+      
       <div className='feed-header'>
         <h2 className='feed-home-button'>Home</h2>
       </div>
       
-      
-      <div>
-        <PostIssue/>
+      <div className='post-issue'>
+        <PostIssue bool={bool} setBool={setBool} />
       </div>
+
       {/* Fetching and Adding Issues for Feed */}
       {issues.map((issue) => {
           return (
@@ -45,6 +47,7 @@ function Feed() {
           ) 
         })
       }
+
     </div>
   )
 }
