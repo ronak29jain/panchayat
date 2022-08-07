@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import Avatar from '@mui/material/Avatar'
 import './Issue.css'
 // import Issueheader from './Issueheader';
@@ -12,9 +12,9 @@ import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
 
 
-function Issue({avatar, image, name, username, sirpanch, panch, text}) {
+const Issue = forwardRef(({avatar, image, name, username, sirpanch, panch, text}, ref) => {
   return (
-    <div className="issue">
+    <div className="issue" ref={ref}>
 
       <div className='issue-avatar'>
         <Avatar src={avatar}/>
@@ -52,7 +52,7 @@ function Issue({avatar, image, name, username, sirpanch, panch, text}) {
       </div>
 
     </div>
-  )
-}
+  );
+});
 
 export default Issue

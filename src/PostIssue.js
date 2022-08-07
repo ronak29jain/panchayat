@@ -7,7 +7,7 @@ import db from './firebase';
 import {collection, addDoc} from "firebase/firestore";
 
 
-function PostIssue({bool, setBool}) {
+function PostIssue() {
 
   const [text, setText] = useState("")
   const [image, setImage] = useState("")
@@ -16,16 +16,15 @@ function PostIssue({bool, setBool}) {
     const issuesConllectionRef = collection(db, "issues")
     await addDoc(issuesConllectionRef, {
       avatar: "/images/photo.jpg",
-      image: {image}.image,
+      image: image,
       name: "Ronak Jain",
       panch: false,
       sirpanch: true, 
-      text: {text}.text,
+      text: text,
       username: "ronak29jain"
     })
     setText("");
     setImage("");
-    setBool = !bool
   }
 
   return (

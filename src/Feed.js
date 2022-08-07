@@ -4,11 +4,11 @@ import PostIssue from './PostIssue'
 import Issue from './Issue';
 import db from './firebase';
 import {collection, getDocs} from "firebase/firestore";
+import FlipMove from 'react-flip-move';
 
 function Feed() {
   
   const [issues, setIssues] = useState([]);
-  const [bool, setBool] = useState(true)
 
   useEffect(() => {
     const getIssues = async () => {
@@ -17,7 +17,7 @@ function Feed() {
       setIssues(data.docs.map((doc) => ({...doc.data(), id: doc.id}) ))
     }
     getIssues();
-  },[bool])
+  })
 
   return (
     <div className='feed'>
@@ -27,26 +27,28 @@ function Feed() {
       </div>
       
       <div className='post-issue'>
-        <PostIssue bool={bool} setBool={setBool} />
+        <PostIssue/>
       </div>
 
       {/* Fetching and Adding Issues for Feed */}
-      {issues.map((issue) => {
+      <FlipMove>
+        {issues.map((issue) => {
           return (
             <div key={issue.id}> 
-              <Issue 
-                avatar={issue.avatar}
-                image={issue.image}
-                name={issue.name}
-                panch={issue.panch}
-                sirpanch={issue.sirpanch}
-                text={issue.text}
-                username={issue.username}
-              />
-            </div>
-          ) 
-        })
-      }
+                <Issue 
+                  avatar={issue.avatar}
+                  image={issue.image}
+                  name={issue.name}
+                  panch={issue.panch}
+                  sirpanch={issue.sirpanch}
+                  text={issue.text}
+                  username={issue.username}
+                  />
+              </div>
+            ) 
+          })
+        }
+      </FlipMove>
 
     </div>
   )
