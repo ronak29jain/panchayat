@@ -2,7 +2,7 @@
   flex: 0.2;
   border-right: var(--clr-background) 2px solid;
   border-left: var(--clr-background) 2px solid;
-  min-width: 200px;
+  min-width: 160px;
   /* margin-top: 20px; */
   padding: 20px 20px;
 }

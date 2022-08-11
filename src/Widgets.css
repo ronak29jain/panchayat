@@ -1,4 +1,89 @@
 .widgets {
   flex: 0.3;
   border-right: var(--clr-background) 2px solid;
+  min-width: 200px;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  width: 100%;
+  max-width: 300px;
+  height: 500px;
+  border-radius: var(--radius);
+  margin: 10px auto;
+  padding: 0 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container::before {
+  content: '';
+  background: url(./../public/images/weather-background.jpg) center/cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: var(--radius);
+}
+
+.container .searchbox {
+  text-align: center;
+  padding: 1rem;
+}
+
+.widgets .container .searchbox input {
+  padding: .7rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  color: #f8f8f8;
+}
+
+.widgets>.container>.searchbox>input::placeholder {
+  color: #f8f8f8;
+}
+
+.top {
+  /* margin: 1rem auto; */
+
+}
+
+.discription {
+  position: relative;
+  right: -85%;
+  transform-origin: 0 0;
+  transform: rotate(270deg);
+
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem;
+  margin: 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  /* background: rgba(0, 0, 0, 0.3); */
+  border-radius: var(--radius);
+  text-align: center;
+  /* color: black; */
+}
+
+p {
+  font-size: 1.4rem;
+  margin: 0.5rem;
+}
+
+h1 {
+  font-size: 4rem;
+  margin: 10px;
+}
+
+.bold {
+  font-weight: 700;
 }
