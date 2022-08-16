@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+// import React from 'react'
 import './Feed.css'
 import PostIssue from './PostIssue'
 import Issue from './Issue';
@@ -36,6 +37,7 @@ function Feed() {
           return (
             <div key={issue.id}> 
                 <Issue 
+                  id={issue.id}
                   avatar={issue.avatar}
                   image={issue.image}
                   name={issue.name}
@@ -49,6 +51,16 @@ function Feed() {
           })
         }
       </FlipMove>
+
+      {/* <Issue 
+        avatar=""
+        image=""
+        name="Ronak"
+        panch = 'true'
+        sirpanch = 'false'
+        text="Testing the delete button"
+        username="ronak29jain"
+        /> */}
 
     </div>
   )

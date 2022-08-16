@@ -1,8 +1,11 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useState,  } from 'react'
 import Avatar from '@mui/material/Avatar'
 import './Issue.css'
 // import Issueheader from './Issueheader';
 import Discriptionimage from './Discriptionimage';
+import Editissuemodal from './Editissuemodal';
+import db from './firebase';
+import {deleteDoc, doc} from "firebase/firestore";
 
 
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
@@ -11,8 +14,32 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
 
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+// import { async } from '@firebase/util';
 
-const Issue = forwardRef(({avatar, image, name, username, sirpanch, panch, text}, ref) => {
+
+const Issue = forwardRef(({id, avatar, image, name, username, sirpanch, panch, text}, ref) => {
+  
+  const [displayOption, setDisplayOption] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+
+  const deleteissue = async(id) => {
+    setDisplayOption(!displayOption)
+    const userDoc = doc(db, 'issues', id)
+    await deleteDoc(userDoc)
+  }
+  
+  const displaypopup = async(id) => {
+    setDisplayOption(!displayOption)
+    setOpenModal(true)
+    // const userDoc = doc(db, 'issues', id)  
+
+  }
+
+  // const editissue = () => {
+  //   setOpenModal(false)
+  // }
+  
   return (
     <div className="issue" ref={ref}>
 
@@ -33,11 +60,24 @@ const Issue = forwardRef(({avatar, image, name, username, sirpanch, panch, text}
               </span>
             </h3>
           </div>
-          
-          <div className='issue-head-discription'>
-            {text}
+
+          <div className="option">
+            <div className="option-btn">
+            <MoreVertIcon onClick={(e) => setDisplayOption(!displayOption)}/>
+            </div>
+
+            {displayOption &&
+              <div className="option-fn">
+                <div onClick={() => displaypopup(id)}>Edit</div>
+                <div onClick={() => deleteissue(id)}>Delete</div>
+              </div>
+            }
+
           </div>
-          
+        </div>
+        
+        <div className='issue-head-discription'>
+          {text}
         </div>
         
         <Discriptionimage imgurl={image}/>
@@ -51,6 +91,14 @@ const Issue = forwardRef(({avatar, image, name, username, sirpanch, panch, text}
         </div>
       </div>
 
+      {/* {editPopUp &&       
+        <div className="editpopup">
+          <h3>Hello World</h3>
+          <button onClick={editissue}>close</button>
+        </div>
+      } */}
+
+      {openModal && <Editissuemodal id={id} text={text} image={image} popup={openModal} closeModal={() => setOpenModal(false)}/> }
     </div>
   );
 });

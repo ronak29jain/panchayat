@@ -4,6 +4,14 @@
   align-items: flex-start;
   /* padding-top: 20px; */
   border: var(--clr-background) 1px solid;
+  /* position: relative; */
+}
+
+.editpopup {
+  position: fixed;
+  /* top: 0; */
+  background: white;
+  z-index: 2;
 }
 
 .issue-body {
@@ -14,6 +22,44 @@
   /* width: inherit; */
 }
 
+.issue-head {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.issue-head .option .option-btn{
+  /* border-radius: 5px; */
+  /* box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.2); */
+}
+
+.issue-head .option .option-btn:hover {
+  transform: scale(1.15);
+  /* border-radius: 5px; */
+  /* box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.2); */
+}
+
+.issue-head .option .option-fn {
+  background: white;
+  top: 115%;
+  right: 0%;
+  /* padding: 5px; */
+  box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+}
+
+.issue-head .option .option-fn div {
+  padding: 5px;
+  border-bottom: 1px solid var(--clr-grey-5);
+}
+
+.issue-head .option:hover {
+  /* transform: scale(1.1); */
+  /* background: wheat; */
+  cursor: pointer;
+}
 
 .issue-header > h3 {
   font-size: 15px;
