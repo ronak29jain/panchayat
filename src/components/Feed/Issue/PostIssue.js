@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import './PostIssue.css'
 import {Avatar} from '@mui/material'
 import { Button } from '@mui/material'
-import db from './firebase';
+import db from './../../../firebase';
 import {collection, addDoc} from "firebase/firestore";
 
 

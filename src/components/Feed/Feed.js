@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 // import React from 'react'
 import './Feed.css'
-import PostIssue from './PostIssue'
-import Issue from './Issue';
-import db from './firebase';
+import PostIssue from './Issue/PostIssue'
+import Issue from './Issue/Issue';
+import db from './../../firebase';
 import {collection, getDocs} from "firebase/firestore";
 import FlipMove from 'react-flip-move';
 

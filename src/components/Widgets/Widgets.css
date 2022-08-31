@@ -21,7 +21,7 @@
 
 .container::before {
   content: '';
-  background: url(./../public/images/weather-background.jpg) center/cover;
+  background: url(./../../../public/images/weather-background.jpg) center/cover;
   width: 100%;
   height: 100%;
   position: absolute;

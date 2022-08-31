@@ -1,7 +1,7 @@
 // import { async } from '@firebase/util'
 import React, { useState } from 'react'
 import './Editissuemodal.css'
-import db from './firebase';
+import db from './../../../firebase';
 import {updateDoc, doc} from "firebase/firestore";
 
 function Editissuemodal({id, text, image, popup, closeModal}) {

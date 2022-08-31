@@ -4,7 +4,7 @@ import './Issue.css'
 // import Issueheader from './Issueheader';
 import Discriptionimage from './Discriptionimage';
 import Editissuemodal from './Editissuemodal';
-import db from './firebase';
+import db from './../../../firebase';
 import {deleteDoc, doc} from "firebase/firestore";
 
 
