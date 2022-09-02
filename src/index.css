@@ -1,6 +1,4 @@
 :root {
-  /* --clr-primary: #678e3e; */
-  /* --clr-primary-light: #8fbb5f; */
   --clr-primary: #50b7f5;
   --clr-primary-light: #e8f5fe;
   --clr-background: #e6ecf0;
@@ -8,20 +6,10 @@
   --clr-grey-5: #617d98;
   --clr-grey-10: #f1f5f8;
   --clr-white: #ffffff;
-  --clr-purple-1: #8D80AD;
-  --clr-purple-5: #8D80AD;
-  --clr-purple-10: #8D80AD;
-  --ff-primary: 'Catamaran', 'San-serif';
-  --ff-secondary: 'Grand Hotel', 'Cursive';
   --transition: color 0.1s ease-out;
   --spacing: 0.25rem;
   --radius: 30px;
 }
-
-/* * {
-  margin: 0;
-  padding: 0;
-} */
 
 body {
   margin: 0;

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-// import React from 'react'
 import './Feed.css'
 import PostIssue from './Issue/PostIssue'
 import Issue from './Issue/Issue';
@@ -36,32 +35,21 @@ function Feed() {
         {issues.map((issue) => {
           return (
             <div key={issue.id}> 
-                <Issue 
-                  id={issue.id}
-                  avatar={issue.avatar}
-                  image={issue.image}
-                  name={issue.name}
-                  panch={issue.panch}
-                  sirpanch={issue.sirpanch}
-                  text={issue.text}
-                  username={issue.username}
-                  />
+              <Issue 
+                id={issue.id}
+                avatar={issue.avatar}
+                image={issue.image}
+                name={issue.name}
+                panch={issue.panch}
+                sirpanch={issue.sirpanch}
+                text={issue.text}
+                username={issue.username}
+                />
               </div>
             ) 
           })
         }
       </FlipMove>
-
-      {/* <Issue 
-        avatar=""
-        image=""
-        name="Ronak"
-        panch = 'true'
-        sirpanch = 'false'
-        text="Testing the delete button"
-        username="ronak29jain"
-        /> */}
-
     </div>
   )
 }

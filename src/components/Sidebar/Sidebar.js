@@ -2,7 +2,6 @@ import React from 'react'
 import './Sidebar.css';
 import SidebarOption from './SidebarOption';
 
-
 import PentagonIcon from '@mui/icons-material/Pentagon';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import TagIcon from '@mui/icons-material/Tag';
@@ -14,7 +13,6 @@ import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import { Button } from '@mui/material';
 
-
 function Sidebar() {
   return (
     <div className='sidebar'>
@@ -22,28 +20,14 @@ function Sidebar() {
       {/* Panchayat Icon */}
       <PentagonIcon className='panchayat_icon'/>
 
-      {/* Sidebar  option*/}
+      {/* Sidebar Option Icons */}
       <SidebarOption active Icon={HomeOutlinedIcon} text='Home'/>
-
-      {/* Sidebar  option*/}
       <SidebarOption Icon={TagIcon} text='Explore'/>
-
-      {/* Sidebar  option*/}
       <SidebarOption Icon={NotificationsActiveOutlinedIcon} text='Notification'/>
-
-      {/* Sidebar  option*/}
       <SidebarOption Icon={EmailOutlinedIcon} text='Message'/>
-
-      {/* Sidebar  option*/}
       <SidebarOption Icon={BookmarkAddedOutlinedIcon} text='Bookmark'/>
-
-      {/* Sidebar  option*/}
       <SidebarOption Icon={ClearAllOutlinedIcon} text='List'/>
-
-      {/* Sidebar  option*/}
       <SidebarOption Icon={PermIdentityOutlinedIcon} text="Profile"/>
-
-      {/* Sidebar  option*/}
       <SidebarOption Icon={MoreHorizOutlinedIcon} text="More"/>
 
       {/* Button - Issue */}

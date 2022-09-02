@@ -1,45 +1,34 @@
 import React, { forwardRef, useState,  } from 'react'
 import Avatar from '@mui/material/Avatar'
 import './Issue.css'
-// import Issueheader from './Issueheader';
+import './Modal.css'
 import Discriptionimage from './Discriptionimage';
 import Editissuemodal from './Editissuemodal';
-import db from './../../../firebase';
-import {deleteDoc, doc} from "firebase/firestore";
-
+import DeleteIssueModal from './DeleteIssueModal';
 
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
-
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-// import { async } from '@firebase/util';
-
 
 const Issue = forwardRef(({id, avatar, image, name, username, sirpanch, panch, text}, ref) => {
   
   const [displayOption, setDisplayOption] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
-
-  const deleteissue = async(id) => {
-    setDisplayOption(!displayOption)
-    const userDoc = doc(db, 'issues', id)
-    await deleteDoc(userDoc)
-  }
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
   
-  const displaypopup = async(id) => {
+  const displayPopUp = async(id, modalname) => {
     setDisplayOption(!displayOption)
-    setOpenModal(true)
-    // const userDoc = doc(db, 'issues', id)  
-
+    if (modalname === 'edit') {
+      setOpenEditModal(true)
+    }
+    else if (modalname === 'delete') {
+      setOpenDeleteModal(true)
+    }
   }
 
-  // const editissue = () => {
-  //   setOpenModal(false)
-  // }
-  
   return (
     <div className="issue" ref={ref}>
 
@@ -50,7 +39,6 @@ const Issue = forwardRef(({id, avatar, image, name, username, sirpanch, panch, t
       <div className='issue-body'>
         <div className='issue-head'>
           <div className='issue-header'>
-            {/* <Issueheader name={name} username={username} sirpanch={sirpanch} panch={panch}/> */}
             <h3>
               {name}{" "}
               <span className='issue-username'>
@@ -63,16 +51,14 @@ const Issue = forwardRef(({id, avatar, image, name, username, sirpanch, panch, t
 
           <div className="option">
             <div className="option-btn">
-            <MoreVertIcon onClick={(e) => setDisplayOption(!displayOption)}/>
+              <MoreVertIcon onClick={(e) => setDisplayOption(!displayOption)}/>
             </div>
-
             {displayOption &&
               <div className="option-fn">
-                <div onClick={() => displaypopup(id)}>Edit</div>
-                <div onClick={() => deleteissue(id)}>Delete</div>
+                <div onClick={() => displayPopUp(id,'edit')}>Edit</div>
+                <div onClick={() => displayPopUp(id,'delete')}>Delete</div>
               </div>
             }
-
           </div>
         </div>
         
@@ -81,8 +67,6 @@ const Issue = forwardRef(({id, avatar, image, name, username, sirpanch, panch, t
         </div>
         
         <Discriptionimage imgurl={image}/>
-
-        {/* <img src={image} alt="discription"/> */}
         
         <div className="issue-footer">
           <FavoriteBorderOutlinedIcon/>
@@ -91,14 +75,8 @@ const Issue = forwardRef(({id, avatar, image, name, username, sirpanch, panch, t
         </div>
       </div>
 
-      {/* {editPopUp &&       
-        <div className="editpopup">
-          <h3>Hello World</h3>
-          <button onClick={editissue}>close</button>
-        </div>
-      } */}
-
-      {openModal && <Editissuemodal id={id} text={text} image={image} popup={openModal} closeModal={() => setOpenModal(false)}/> }
+      {openEditModal && <Editissuemodal id={id} text={text} image={image} closeModal={() => setOpenEditModal(false)}/> }
+      {openDeleteModal && <DeleteIssueModal id={id} closeModal={() => setOpenDeleteModal(false)}/> }
     </div>
   );
 });

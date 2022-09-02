@@ -1,6 +1,4 @@
-// import { async } from '@firebase/util'
 import React, { useState } from 'react'
-import './Editissuemodal.css'
 import db from './../../../firebase';
 import {updateDoc, doc} from "firebase/firestore";
 
@@ -19,14 +17,9 @@ function Editissuemodal({id, text, image, popup, closeModal}) {
       image: updatedimgurl
     }
     await updateDoc(userDoc, updatedfield)
-    
-    // setUpdatedtext('')
-    // setUpdatedimgurl('')
     closeModal();
   }
 
-
-  // if (!popup) return null;
   return (
     <div className='editissuemodal'>
       <div className="modal">

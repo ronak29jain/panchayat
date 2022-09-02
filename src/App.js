@@ -1,14 +1,10 @@
 import './App.css';
-import Sidebar from './components/Sidebar/Sidebar';
-import Feed from './components/Feed/Feed';
-import Widgets from './components/Widgets/Widgets';
+import Home from './components/Home/Home';
 
 function App() {
   return (
     <div className="app">
-      <Sidebar/>
-      <Feed/>
-      <Widgets/>
+      <Home/>
     </div>
   );
 }
