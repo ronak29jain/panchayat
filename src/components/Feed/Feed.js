@@ -1,23 +1,26 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
+// import React, {useState, useEffect} from 'react'
 import './Feed.css'
 import PostIssue from './Issue/PostIssue'
 import Issue from './Issue/Issue';
-import db from './../../firebase';
-import {collection, getDocs} from "firebase/firestore";
+// import db from './../../firebase';
+// import {collection, getDocs} from "firebase/firestore";
+import { IssueHandling } from '../../context/IssueContext';
 import FlipMove from 'react-flip-move';
 
 function Feed() {
   
-  const [issues, setIssues] = useState([]);
+  const { issues } = IssueHandling();
+  // const [issues, setIssues] = useState([]);
 
-  useEffect(() => {
-    const getIssues = async () => {
-      const issuesCollectionRef = collection(db, "issues")
-      const data = await getDocs(issuesCollectionRef);
-      setIssues(data.docs.map((doc) => ({...doc.data(), id: doc.id}) ))
-    }
-    getIssues();
-  })
+  // useEffect(() => {
+  //   const getIssues = async () => {
+  //     const issuesCollectionRef = collection(db, "issues")
+  //     const data = await getDocs(issuesCollectionRef);
+  //     setIssues(data.docs.map((doc) => ({...doc.data(), id: doc.id}) ))
+  //   }
+  //   getIssues();
+  // })
 
   return (
     <div className='feed'>

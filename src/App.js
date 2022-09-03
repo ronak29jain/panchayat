@@ -1,10 +1,14 @@
 import './App.css';
 import Home from './components/Home/Home';
 
+import { IssueContextProvider } from './context/IssueContext';
+
 function App() {
   return (
     <div className="app">
-      <Home/>
+      <IssueContextProvider>
+        <Home/>
+      </IssueContextProvider>
     </div>
   );
 }

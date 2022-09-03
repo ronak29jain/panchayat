@@ -2,28 +2,42 @@ import React, {useState} from 'react'
 import './PostIssue.css'
 import {Avatar} from '@mui/material'
 import { Button } from '@mui/material'
-import db from './../../../firebase';
-import {collection, addDoc} from "firebase/firestore";
+// import db from './../../../firebase';
+// import {collection, addDoc} from "firebase/firestore";
+
+// import { IssueHandling } from '../../../context/IssueContext';
+import { IssueHandling } from '../../../context/IssueContext';
 
 function PostIssue() {
+
+  const { addI } = IssueHandling();
 
   const [text, setText] = useState("")
   const [image, setImage] = useState("")
 
-  const postissue = async() => {
-    const issuesConllectionRef = collection(db, "issues")
-    await addDoc(issuesConllectionRef, {
-      avatar: "/images/photo.jpg",
-      image: image,
-      name: "Ronak Jain",
-      panch: false,
-      sirpanch: true, 
-      text: text,
-      username: "ronak29jain"
-    })
-    setText("");
-    setImage("");
+
+  const postissue = () => {
+    try {
+      addI(text, setText, image, setImage);
+    } catch (err) {
+      console.log("This is a error from postissue fn in PostIssue.js: ", err.message)
+    }
   }
+
+  // const postissue = async() => {
+  //   const issuesConllectionRef = collection(db, "issues")
+  //   await addDoc(issuesConllectionRef, {
+  //     avatar: "/images/photo.jpg",
+  //     image: image,
+  //     name: "Ronak Jain",
+  //     panch: false,
+  //     sirpanch: true, 
+  //     text: text,
+  //     username: "ronak29jain"
+  //   })
+  //   setText("");
+  //   setImage("");
+  // }
 
   return (
     <div className='postIssue'>

@@ -1,24 +1,36 @@
 import React, { useState } from 'react'
-import db from './../../../firebase';
-import {updateDoc, doc} from "firebase/firestore";
+// import db from './../../../firebase';
+// import {updateDoc, doc} from "firebase/firestore";
 
-function Editissuemodal({id, text, image, popup, closeModal}) {
-  
+import { IssueHandling } from '../../../context/IssueContext';
+
+function Editissuemodal({id, text, image, closeModal}) {
+
+  const { updateI } = IssueHandling();
+
   const [updatedtext, setUpdatedtext] = useState(text)
   const [updatedimgurl, setUpdatedimgurl] = useState(image)
-  
-  const updateissue = async(id) => {
-    console.log(updatedtext)
-    console.log(updatedimgurl)
-    
-    const userDoc = doc(db, 'issues', id)
-    const updatedfield = {
-      text: updatedtext,
-      image: updatedimgurl
+
+  const updateissue = () => {
+    try {
+      updateI(id, updatedtext, updatedimgurl, closeModal);
+    } catch (err) {
+      console.log('this is the error from updateissue fn in the EditIssueModal.js:', err.message)
     }
-    await updateDoc(userDoc, updatedfield)
-    closeModal();
   }
+  
+  // const updateissue = async(id) => {
+  //   console.log(updatedtext)
+  //   console.log(updatedimgurl)
+    
+  //   const userDoc = doc(db, 'issues', id)
+  //   const updatedfield = {
+  //     text: updatedtext,
+  //     image: updatedimgurl
+  //   }
+  //   await updateDoc(userDoc, updatedfield)
+  //   closeModal();
+  // }
 
   return (
     <div className='editissuemodal'>
