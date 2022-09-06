@@ -1,20 +1,19 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './PostIssue.css'
 import {Avatar} from '@mui/material'
 import { Button } from '@mui/material'
-// import db from './../../../firebase';
-// import {collection, addDoc} from "firebase/firestore";
-
-// import { IssueHandling } from '../../../context/IssueContext';
 import { IssueHandling } from '../../../context/IssueContext';
+import { UserAuth } from '../../../context/Authcontext';
 
 function PostIssue() {
+
+  const { user } = UserAuth();
 
   const { addI } = IssueHandling();
 
   const [text, setText] = useState("")
   const [image, setImage] = useState("")
-
+  // const [avatarURL, setAvatarURL] = useState("")
 
   const postissue = () => {
     try {
@@ -24,26 +23,18 @@ function PostIssue() {
     }
   }
 
-  // const postissue = async() => {
-  //   const issuesConllectionRef = collection(db, "issues")
-  //   await addDoc(issuesConllectionRef, {
-  //     avatar: "/images/photo.jpg",
-  //     image: image,
-  //     name: "Ronak Jain",
-  //     panch: false,
-  //     sirpanch: true, 
-  //     text: text,
-  //     username: "ronak29jain"
-  //   })
-  //   setText("");
-  //   setImage("");
-  // }
+  // useEffect(() => {
+  //   if (user.photoURL) {
+  //     setAvatarURL(user.photoURL)
+  //   }
+  //   else { setAvatarURL("/Images/default_profile_image.png") }
+  // },[])
 
   return (
     <div className='postIssue'>
       <form className='postIssue-form'>
         <div className='postIssue-content'>
-          <Avatar src="/images/photo.jpg"/>
+          <Avatar src={user.photoURL}/>
           <input value={text} type="text" placeholder='Share Concern'
             onChange={(event) => setText(event.target.value)}>
           </input>

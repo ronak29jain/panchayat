@@ -1,7 +1,7 @@
 import React from 'react'
 import './Sidebar.css';
 import SidebarOption from './SidebarOption';
-
+import { Link } from 'react-router-dom';
 import PentagonIcon from '@mui/icons-material/Pentagon';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import TagIcon from '@mui/icons-material/Tag';
@@ -12,27 +12,42 @@ import ClearAllOutlinedIcon from '@mui/icons-material/ClearAllOutlined';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import { Button } from '@mui/material';
+import { UserAuth } from '../../context/Authcontext';
 
 function Sidebar() {
+  
+  const { googleSignOut } = UserAuth();
+
+  const signOut = async() => {
+    try {
+      await googleSignOut()
+        .then(() => {});
+    } catch (err) {
+      console.log('Error During Log Out (Navigation.js)', err)
+    }
+  }
+
   return (
     <div className='sidebar'>
-
       {/* Panchayat Icon */}
       <PentagonIcon className='panchayat_icon'/>
 
       {/* Sidebar Option Icons */}
-      <SidebarOption active Icon={HomeOutlinedIcon} text='Home'/>
+      <Link to='/user' className='nav-link'>
+        <SidebarOption active Icon={HomeOutlinedIcon} text='Home'/>
+      </Link>
       <SidebarOption Icon={TagIcon} text='Explore'/>
       <SidebarOption Icon={NotificationsActiveOutlinedIcon} text='Notification'/>
       <SidebarOption Icon={EmailOutlinedIcon} text='Message'/>
       <SidebarOption Icon={BookmarkAddedOutlinedIcon} text='Bookmark'/>
       <SidebarOption Icon={ClearAllOutlinedIcon} text='List'/>
-      <SidebarOption Icon={PermIdentityOutlinedIcon} text="Profile"/>
+      <Link to='/user/profile' className='nav-link'>
+        <SidebarOption Icon={PermIdentityOutlinedIcon} text="Profile"/>
+      </Link>
       <SidebarOption Icon={MoreHorizOutlinedIcon} text="More"/>
 
       {/* Button - Issue */}
-      <Button varient="Outlined" className='sidebar_tweet' fullWidth>Tweet</Button>
-
+      <Button onClick={signOut} varient="Outlined" className='sidebar_issue' fullWidth>Log Out</Button>
     </div>
   )
 }

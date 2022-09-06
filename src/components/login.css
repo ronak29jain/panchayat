@@ -1,0 +1,147 @@
+.home h3 {
+  color: black;
+  font-weight: bolder;
+}
+
+
+.signin-form {
+  /*  mv4 w-100 w-50-m w-25-l mw6 shadow-5 pa4 black-80 */
+  border: 1px solid black;
+  border-radius: .5rem;
+  margin-top: var(--spacing-large);
+  margin-bottom:var(--spacing-large);
+  width: 100%;
+  max-width: 25rem;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  padding: var(--spacing-large);
+  color: white;
+
+  /* background-color: black;
+  background-image:
+    radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px),
+    radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px),
+    radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 40px),
+    radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; */
+
+  background:
+    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+  background-color: #131313;
+  background-size: 20px 20px;
+}
+
+.signin-form div {
+  max-width: 30em;
+}
+
+
+.fieldset {
+  border: none;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0; 
+  margin-right:0;
+}
+
+.legend {
+  /* f1 fw6 ph0 mh0 */
+  font-size: 3rem;
+  font-weight: 600;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.input-section {
+  /* margin-top: var(--spacing-medium); 
+  margin-bottom:var(--spacing-medium); */
+  margin: var(--spacing-medium);
+}
+
+.input-section .label {
+  /* db fw6 lh-copy f6 */
+  display: block;
+  font-weight: 600;
+  line-height: 1.5;
+  font-size: .875rem;
+  margin: 0.5rem;
+}
+
+.input-section .input {
+  /* pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 */
+  padding: var(--spacing-small);
+  border-style: solid;
+  background-color: var(--transparent);
+  color: white;
+  width: 100%;
+}
+
+.input-section .input:hover {
+  background-color: black;
+  color: white;
+}
+
+.fieldset .error {
+  color: red;
+}
+
+.signin-form .submit {
+  /* b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib */
+  display: inline-block;
+  padding: var(--spacing-small) var(--spacing-medium);
+  /* border-style: solid; */
+  /* border-color: black; */
+  border: 2px solid white;
+  color: white;
+  background-color: var(--transparent);
+  cursor: pointer;
+  font-size: .875rem;
+}
+
+hr {
+  /* mv4 */
+  margin: var(--spacing-large) auto;
+}
+
+.signinwithgoogle {
+  /* mv3 */
+  margin: var(--spacing-medium) auto;
+}
+
+.sign-in-footer {
+  /* lh-copy mt3 mv4 */
+  line-height: 1.5;
+  margin: var(--spacing-large) auto;
+}
+
+.footer-link {
+  /* f6 link dim db b */
+  display: block;
+  font-size: .875rem;
+  font-weight: bold;
+  text-decoration: none ;
+  transition:color .15s ease-in;
+  opacity: 1 ;
+  transition:opacity .15s ease-in;
+}
+
+.donot-have-an-account {
+  /* flex items-center justify-around */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn-submit {
+  padding: 1rem;
+  margin: 1.5rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.125rem;
+  background-color: darkseagreen;
+}

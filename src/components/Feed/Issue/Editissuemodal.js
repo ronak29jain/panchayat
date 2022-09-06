@@ -1,7 +1,4 @@
 import React, { useState } from 'react'
-// import db from './../../../firebase';
-// import {updateDoc, doc} from "firebase/firestore";
-
 import { IssueHandling } from '../../../context/IssueContext';
 
 function Editissuemodal({id, text, image, closeModal}) {
@@ -18,23 +15,10 @@ function Editissuemodal({id, text, image, closeModal}) {
       console.log('this is the error from updateissue fn in the EditIssueModal.js:', err.message)
     }
   }
-  
-  // const updateissue = async(id) => {
-  //   console.log(updatedtext)
-  //   console.log(updatedimgurl)
-    
-  //   const userDoc = doc(db, 'issues', id)
-  //   const updatedfield = {
-  //     text: updatedtext,
-  //     image: updatedimgurl
-  //   }
-  //   await updateDoc(userDoc, updatedfield)
-  //   closeModal();
-  // }
 
   return (
-    <div className='editissuemodal'>
-      <div className="modal">
+    <div onClick={closeModal} className='editissuemodal'>
+      <div onClick={(e) => { e.stopPropagation() }} className="modal">
         <div className="close-btn btn">
           <button onClick={closeModal}>X</button>
         </div>

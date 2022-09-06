@@ -1,6 +1,7 @@
 import { useContext, createContext, useState, useEffect } from "react";
-import db from "../firebase";
+import { db } from "../firebase";
 import { doc, collection, getDocs, addDoc, updateDoc, deleteDoc} from "firebase/firestore";
+import { UserAuth } from "./Authcontext";
 
 const IssueContext = createContext();
 
@@ -8,17 +9,19 @@ export const IssueContextProvider = ({children}) => {
 
   const [issues, setIssues] = useState([]);
   const [updateIssues, setUpdateIssues] = useState(false);
+  const { user } = UserAuth();
 
   const addI = async(text, setText, image, setImage) => {
     const issuesConllectionRef = collection(db, "issues")
     await addDoc(issuesConllectionRef, {
-      avatar: "/images/photo.jpg",
+      avatar: user.photoURL,
       image: image,
-      name: "Ronak Jain",
-      panch: false,
-      sirpanch: true, 
+      name: user.displayName,
+      // panch: false,
+      sirpanch: user.emailVerified, 
       text: text,
-      username: "ronak29jain"
+      username: "",
+      email: user.email,
     }).then(() => {setUpdateIssues(!updateIssues);})
     setText("");
     setImage("");
@@ -43,6 +46,7 @@ export const IssueContextProvider = ({children}) => {
 
   useEffect(() => {
     const getIssues = async () => {
+      console.log('Issuecontext useEffect funtion runed.')
       const issuesCollectionRef = collection(db, "issues")
       const data = 
         await getDocs(issuesCollectionRef)

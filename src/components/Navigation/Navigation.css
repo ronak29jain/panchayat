@@ -1,0 +1,30 @@
+.navigation {
+  border-bottom: 3px grey solid;
+  height: 4rem;
+
+  /* background: linear-gradient(89deg, #ff5edf, #04cdde); */
+  background: linear-gradient(89deg, lightslategray ,#04cdde );
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-loged-in, .user-loged-out {
+  /* nav f3 pa3 link dim black underline pointer */
+  /* margin: auto 0; */
+  padding: var(--spacing-medium);
+  font-size: 1.5rem;
+  cursor: pointer;
+  
+  
+}
+
+.link {
+  color: black;
+  padding: var(--spacing-medium);
+  text-decoration: none;
+  opacity: 1; 
+  transition:opacity .15s ease-in;
+}

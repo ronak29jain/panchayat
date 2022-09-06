@@ -1,14 +1,13 @@
 import './App.css';
-import Home from './components/Home/Home';
-
-import { IssueContextProvider } from './context/IssueContext';
+import { Outlet } from 'react-router-dom';
+import { AuthContextProvider } from './context/Authcontext';
 
 function App() {
   return (
-    <div className="app">
-      <IssueContextProvider>
-        <Home/>
-      </IssueContextProvider>
+    <div className="app">      
+      <AuthContextProvider>
+        <Outlet />
+      </AuthContextProvider>
     </div>
   );
 }

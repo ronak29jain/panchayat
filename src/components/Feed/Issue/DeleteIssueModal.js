@@ -1,29 +1,20 @@
 import React from 'react'
-// import db from './../../../firebase';
-// import {deleteDoc, doc} from "firebase/firestore";
-
 import { IssueHandling } from '../../../context/IssueContext';
 
 function DeleteIssueModal({id, closeModal}) {
 
   const { deleteI } = IssueHandling();
-
   const deleteissue = () => {
     try {
       deleteI(id, closeModal);
     } catch (err) {
-      console.log('this is the error from deleteissue fn in the DeleteIssueModal.js:', err.message)
+      console.log('this is the error from deleteissue fn in the DeleteIssueModal.js:', err.message);
     }
   }
 
-  // const deleteissue = async(id) => {
-  //   const userDoc = doc(db, 'issues', id)
-  //   await deleteDoc(userDoc)
-  // }
-
   return (
-    <div className='editissuemodal'>
-      <div className="modal">
+    <div onClick={closeModal} className='editissuemodal'>
+      <div onClick={(e) => { e.stopPropagation() }} className="modal">
         <div className="close-btn btn">
           <button onClick={closeModal}>X</button>
         </div>

@@ -7,17 +7,19 @@ import Editissuemodal from './Editissuemodal';
 import DeleteIssueModal from './DeleteIssueModal';
 
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
-import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
+// import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { UserAuth } from '../../../context/Authcontext';
 
-const Issue = forwardRef(({id, avatar, image, name, username, sirpanch, panch, text}, ref) => {
+const Issue = forwardRef(({id, avatar, image, name, username, sirpanch, text, email}, ref) => {
   
   const [displayOption, setDisplayOption] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const { user } = UserAuth();
   
   const displayPopUp = async(id, modalname) => {
     setDisplayOption(!displayOption)
@@ -43,16 +45,24 @@ const Issue = forwardRef(({id, avatar, image, name, username, sirpanch, panch, t
               {name}{" "}
               <span className='issue-username'>
                 {sirpanch && <WorkspacePremiumOutlinedIcon className='issue-batch'/>}
-                {panch && <VerifiedOutlinedIcon className='issue-batch'/>}
-                {" "}@{username}
+                {/* {panch && <VerifiedOutlinedIcon className='issue-batch'/>} */}
+                {/* {" "}@ */}
+                {username}
               </span>
             </h3>
           </div>
 
           <div className="option">
-            <div className="option-btn">
+            {
+              (user.email == email) 
+                ? <div className="option-btn">
+                    <MoreVertIcon onClick={(e) => setDisplayOption(!displayOption)}/>
+                  </div>
+                : null
+            }
+            {/* <div className="option-btn">
               <MoreVertIcon onClick={(e) => setDisplayOption(!displayOption)}/>
-            </div>
+            </div> */}
             {displayOption &&
               <div className="option-fn">
                 <div onClick={() => displayPopUp(id,'edit')}>Edit</div>
