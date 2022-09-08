@@ -30,7 +30,7 @@ function SidebarForMobile() {
       <SidebarOption Icon={MoreHorizOutlinedIcon} text=""/>
 
       {/* Button - Issue */}
-      <Button varient="Outlined" className='sidebar_issue'>I</Button>
+      <Button varient="Outlined" className='sidebar_issue'>LogOut</Button>
     </div>
   )
 }

@@ -43,3 +43,11 @@
 .nav-link {
   text-decoration: none;
 }
+
+.nav-link {
+  color: black;
+}
+
+.active {
+  color: var(--clr-primary);
+}

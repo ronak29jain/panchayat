@@ -81,7 +81,7 @@ function UserProfile() {
   useEffect(() => {
     setDisplayName(user.displayName)
     setPhotoURL(user.photoURL)
-  },[])
+  },[user.displayName, user.photoURL])
 
 
   if (!(user?.displayName)) {
@@ -103,14 +103,14 @@ function UserProfile() {
                 <input className="input" value={photoURL} onChange={(e) => setPhotoURL(e.target.value)} />
                 <input className="submit" type="submit" value="Update Profile" onClick={updateProfile} />
               </div>
-              
+              <hr />
               <div className="input-section">
                 <label className="label" htmlFor="email-address">Email</label>
                 <input className="input" type="email" name="email-address"  value={newEmail} onChange={(e) => setNewEmail(e.target.value)}/>
                 <input onClick={updateEmailAddress} className="submit" type="submit" value="Reset Email" />
                 <h5 className='red'>{emailError}</h5>
               </div>
-
+              <hr />
               <div className="input-section">
                 <label className="label" htmlFor="password">Password</label>
                 <input className="input" type="password" name="password"  value={newPassword} onChange={(e) => setNewPassword(e.target.value)}/>
@@ -118,6 +118,7 @@ function UserProfile() {
                 <input onClick={authenticateUser} className="submit" type="submit" value="Authenticate User"/>
                 <h5 className='red'>{passwordError}</h5>
               </div>
+              <hr />
             </fieldset>
             
             <div className="">

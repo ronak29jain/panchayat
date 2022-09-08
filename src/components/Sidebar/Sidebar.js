@@ -1,7 +1,7 @@
 import React from 'react'
 import './Sidebar.css';
 import SidebarOption from './SidebarOption';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PentagonIcon from '@mui/icons-material/Pentagon';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import TagIcon from '@mui/icons-material/Tag';
@@ -33,17 +33,17 @@ function Sidebar() {
       <PentagonIcon className='panchayat_icon'/>
 
       {/* Sidebar Option Icons */}
-      <Link to='/user' className='nav-link'>
-        <SidebarOption active Icon={HomeOutlinedIcon} text='Home'/>
-      </Link>
+      <NavLink to='/user/feed' className='nav-link'>
+        <SidebarOption Icon={HomeOutlinedIcon} text='Home'/>
+      </NavLink>
+      <NavLink to='/user/profile' className='nav-link'>
+        <SidebarOption Icon={PermIdentityOutlinedIcon} text="Profile"/>
+      </NavLink>
       <SidebarOption Icon={TagIcon} text='Explore'/>
       <SidebarOption Icon={NotificationsActiveOutlinedIcon} text='Notification'/>
       <SidebarOption Icon={EmailOutlinedIcon} text='Message'/>
       <SidebarOption Icon={BookmarkAddedOutlinedIcon} text='Bookmark'/>
       <SidebarOption Icon={ClearAllOutlinedIcon} text='List'/>
-      <Link to='/user/profile' className='nav-link'>
-        <SidebarOption Icon={PermIdentityOutlinedIcon} text="Profile"/>
-      </Link>
       <SidebarOption Icon={MoreHorizOutlinedIcon} text="More"/>
 
       {/* Button - Issue */}

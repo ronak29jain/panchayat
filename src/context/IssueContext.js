@@ -17,7 +17,6 @@ export const IssueContextProvider = ({children}) => {
       avatar: user.photoURL,
       image: image,
       name: user.displayName,
-      // panch: false,
       sirpanch: user.emailVerified, 
       text: text,
       username: "",
@@ -46,7 +45,6 @@ export const IssueContextProvider = ({children}) => {
 
   useEffect(() => {
     const getIssues = async () => {
-      console.log('Issuecontext useEffect funtion runed.')
       const issuesCollectionRef = collection(db, "issues")
       const data = 
         await getDocs(issuesCollectionRef)
