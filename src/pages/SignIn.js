@@ -70,7 +70,7 @@ function SignIn() {
             <div className="sign-in-footer">
               <p> <Link to="/accounts/forgot-password" className="footer-link">Forgot Password ?</Link> </p>
               <p className='donot-have-an-account'>
-                <span> Don't have an account? </span> <Link to="/accounts/signup" className="footer-link"> Sign up </Link>
+                <span> Don't have an account? &nbsp; </span> <Link to="/accounts/signup" className="footer-link"> Sign up </Link>
               </p>
             </div>
 

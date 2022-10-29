@@ -124,8 +124,9 @@ hr {
   /* f6 link dim db b */
   display: block;
   font-size: .875rem;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none ;
+  text-decoration: underline ;
   transition:color .15s ease-in;
   opacity: 1 ;
   transition:opacity .15s ease-in;
